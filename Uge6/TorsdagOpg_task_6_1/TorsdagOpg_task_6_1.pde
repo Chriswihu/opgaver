@@ -1,16 +1,17 @@
 int a = (int)random(11);
 int b = (int)random(11);
-
+String result = "";
 
 
 void setup() {
   if (a == 10 || b == 10 || a+b == 10) {
-    println("Success!");
-    println(a);
-    println(b);
+    result = " Success";
+   
   } else {
-    println("Fail!");
-    println(a);
-    println(b);
+    result = "Failure";
+    
   }
+  println(a);
+  println(b);
+  println(result);
 }
