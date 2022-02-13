@@ -1,5 +1,5 @@
 int input = 0;
-int inputMinus = -20;
+int inputMinus = -40;
 int halfPos = (input/2);
 int halfMin = (inputMinus/2);
 String six = "six";
