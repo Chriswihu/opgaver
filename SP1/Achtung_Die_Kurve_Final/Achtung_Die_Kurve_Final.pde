@@ -1,32 +1,19 @@
-boolean dead;
+String s = "Press any Key to start.\n Use Left & Right to steer.";
 
-float posX=random(15, 785), posY=random(15, 785);
+float posX=random(50, 750), posY=random(50, 750);
 float xSpeed=0, ySpeed=0;
-
+boolean lost = false;
 float prevAngle;
-
 
 void setup() {
   background(0);
   size(800, 800);
   frameRate(25);
-  /*
-  stroke(0, 0, 0);
-   rect(5, 5, 490, 490);
-   
-   dead = false;
-   */
+  reset();
 }
 
+
 void draw() {
-
-  /*dead = get((int)posX, (int)posY);
-   if (!dead) {
-   point(posX, posY);
-   } else {
-   text("Game Over", 350, 350);
-   */
-
   posX += xSpeed;
   posY += ySpeed;
 
@@ -35,11 +22,16 @@ void draw() {
   ellipse(posX, posY, 15, 15);
   smooth();
 
-  if (keyPressed) {
-    if (keyCode == UP) {
-      xSpeed = 3;
-      ySpeed = 3;
-    }
+  textAlign(CENTER);
+  textSize(40);
+  fill(255);
+  text(s, width/2, 40, 5);
+
+
+  if (keyPressed == false) {
+    fill(255);
+  } else {
+    fill(0);
   }
 
   if (keyPressed) {
@@ -48,13 +40,25 @@ void draw() {
     else if (keyCode == RIGHT)
       turnRight(10);
   }
-  if (posY > height || width < posX) {
-    posY = height;
-    textAlign(CENTER);
-    textSize(50);
+  if (posY > height-15) {
+
     fill(255);
     text("Game Over", width/2, height/2);
+    noLoop();
+    lost = true;
   }
+}
+void keyPressed() {
+  reset();
+  loop();
+}
+
+void reset() {
+  float posX=random(50, 750), posY=random(50, 750);
+  float xSpeed=0, ySpeed=0;
+  boolean lost = false;
+  float prevAngle;
+  
 }
 
 void turnRight(float angle) {
