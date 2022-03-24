@@ -1,0 +1,31 @@
+@startuml
+class Shop
+class Product
+class Customer
+class Basket
+
+Shop "1" *-- "*" Product : has Product
+Shop "1" *-- "*" Customer : has Account
+Customer "1" *-- "*" Basket : Sold to
+'Customer "1" *-- Product : Picked
+Basket *-- Product : Available
+Product <|-- Service
+
+Shop : ArrayList<Product> products
+Shop : ArrayList<Customer> customers
+Shop : displayProducts()
+
+Customer : +String userName
+Customer : +String id
+Customer : -toString()
+
+Basket : ArrayList<Product> getProduct
+Basket : getPrice()
+Basket : - int Sum()
+
+Product : String productName
+Product : - int price
+Product : buyProduct()
+Product : getPrice()
+
+@enduml

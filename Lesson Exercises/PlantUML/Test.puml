@@ -1,0 +1,35 @@
+@startuml
+
+class Test
+{
+    * Private
+    + Public
+    ' Secret
+
+}
+class Person{
+    - String name
+    + String getName()
+}
+
+class Teacher{
+    - String name
+    + String getName()
+}
+
+class School{
+    - int Year
+    - String Path
+}
+
+class Classroom{
+    # String className
+    * int num.Students
+    * int num.Teacher
+}
+
+School *-- Classroom
+Classroom *-- Person
+Classroom *-- Teacher
+
+@enduml

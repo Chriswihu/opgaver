@@ -1,3 +1,0 @@
-Egon: 3000
-Benny: 1500
-Kjell: 1200

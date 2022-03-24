@@ -1,0 +1,38 @@
+@startuml
+allowmixing
+
+class Main
+class Game
+class Player
+class BankAccount
+class FileIO
+file Data.txt
+
+Main "1" *-- "*" Game : has
+Game "2-6" *-- "*" Player : has
+Game "1" *-- "*" FileIO : has
+Player "1" *-- "*" BankAccount : has
+Data.txt "1" *-- "*" FileIO : has
+
+
+Main : static main (String[] args)
+
+Game : +ArrayList<Player> players
+Game : -FileIO fileIO
+Game : Game()()
+
+Player : -BankAccount account
+Player : -String name
+Player : Player(String name, int balance)
+Player : +String toString()
+Player : +int getBalance()
+Player : +String getName()
+
+FileIO : ArrayList<String> readGameData
+FileIO : - readGameData(String)
+FileIO : void saveGameData()
+
+BankAccount : - int balance
+BankAccount : BankAccount(int balance)
+
+@enduml
